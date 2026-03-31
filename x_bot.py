@@ -11,6 +11,15 @@ access_token_secret = 'tlDHfpYQrAuScwQnhnsUGTpOjoiEk8XkdUTyILcJVIFKx'
 auth = tweepy.OAuth1UserHandler(consumer_key, consumer_secret, access_token, access_token_secret)
 api = tweepy.API(auth) # <--- THIS LINE IS LIKELY MISSING OR MISSPELLED
 
+client = tweepy.Client(bearer_token="YOUR_BEARER_TOKEN", 
+                       consumer_key=consumer_key, 
+                       consumer_secret=consumer_secret, 
+                       access_token=access_token, 
+                       access_token_secret=access_token_secret)
+
+user = client.get_me()
+print(user.data.name)
+
 # 3. Your search logic
 search_term = "cats"
 numberOfTweets = 2
